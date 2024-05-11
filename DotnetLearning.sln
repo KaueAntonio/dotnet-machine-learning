@@ -5,11 +5,13 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6837DD8F-429A-422D-B777-6EF73B3349C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetLearning.Api", "src\DotnetLearning.Api\DotnetLearning.Api.csproj", "{38F7E9D4-8DFA-4845-BFE9-6D2226ADE130}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetLearning.Api", "src\DotnetLearning.Api\DotnetLearning.Api.csproj", "{38F7E9D4-8DFA-4845-BFE9-6D2226ADE130}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetLearning.Core", "src\DotnetLearning.Core\DotnetLearning.Core.csproj", "{1FB409AF-67AE-45FD-915C-08E705F2A2B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetLearning.Core", "src\DotnetLearning.Core\DotnetLearning.Core.csproj", "{1FB409AF-67AE-45FD-915C-08E705F2A2B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetLearning.Infrastructure", "src\DotnetLearning.Infrastructure\DotnetLearning.Infrastructure.csproj", "{A0635337-5AC2-47B0-B2D1-A76D74E27699}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetLearning.Infrastructure", "src\DotnetLearning.Infrastructure\DotnetLearning.Infrastructure.csproj", "{A0635337-5AC2-47B0-B2D1-A76D74E27699}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotnetLearning.Front", "DotnetLearning.Front", "{359ECC25-4A7C-42E4-B9C7-DE8B82B7459D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,7 @@ Global
 		{38F7E9D4-8DFA-4845-BFE9-6D2226ADE130} = {6837DD8F-429A-422D-B777-6EF73B3349C8}
 		{1FB409AF-67AE-45FD-915C-08E705F2A2B3} = {6837DD8F-429A-422D-B777-6EF73B3349C8}
 		{A0635337-5AC2-47B0-B2D1-A76D74E27699} = {6837DD8F-429A-422D-B777-6EF73B3349C8}
+		{359ECC25-4A7C-42E4-B9C7-DE8B82B7459D} = {6837DD8F-429A-422D-B777-6EF73B3349C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1FE66BB8-2DF2-4730-9527-0B1BA02EB126}
