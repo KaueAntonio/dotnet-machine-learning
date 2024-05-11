@@ -3,7 +3,7 @@ using DotnetLearning.Core.FileOperations.Models;
 
 namespace DotnetLearning.Core.FileOperations.Services
 {
-    public class FileManagerService
+    public class FileManagerService : IFileManagerService
     {
         private readonly IFileWriterService _fileWriterService1;
 

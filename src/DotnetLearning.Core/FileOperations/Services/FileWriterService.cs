@@ -5,6 +5,8 @@ namespace DotnetLearning.Core.FileOperations.Services
 {
     public class FileWriterService : IFileWriterService
     {
+        public FileWriterService() { }
+
         public void SaveFile(string path, string format, List<ImageTraningModel> images)
         {
             string fileName = $"{path}\\{Guid.NewGuid()}{format}";

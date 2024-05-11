@@ -5,11 +5,7 @@ namespace DotnetLearning.Core.FileOperations.Services
 {
     public class FileReaderService : IFileReaderService
     {
-
-        public FileReaderService()
-        {
-
-        }
+        public FileReaderService() { }
 
         public IEnumerable<string> ReadImageFile(string filePath, string fileFormat)
         {

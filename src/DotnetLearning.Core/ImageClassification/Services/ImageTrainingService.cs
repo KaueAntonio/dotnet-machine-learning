@@ -3,7 +3,7 @@ using Microsoft.ML;
 
 namespace DotnetLearning.Core.ImageClassification.Services
 {
-    public class ImageTrainingService
+    public class ImageTrainingService : IImageTrainingService
     {
         private string _trainingPath;
         private string _sourcePath;

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DotnetLearning.Core.ImageClassification.Interfaces
+﻿namespace DotnetLearning.Core.ImageClassification.Interfaces
 {
     public interface IImageTrainingService
     {
+        void CreateTrainingProvider(string trainingPath, string sourcePath, string sourceFormat);
+        void StartTraining(string name);
     }
 }
