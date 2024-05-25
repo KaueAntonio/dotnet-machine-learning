@@ -3,18 +3,13 @@ using Microsoft.ML;
 
 namespace DotnetLearning.Core.ImageClassification.Services
 {
-    public class ImageTrainingService : IImageTrainingService
+    public class ImageTrainingService(IDataViewService dataViewService, MLContext context) : IImageTrainingService
     {
         private string _trainingPath;
         private string _sourcePath;
         private string _sourceFormat;
-
-        private readonly IDataViewService _dataViewService;
-
-        public ImageTrainingService(IDataViewService dataViewService) 
-        {
-            _dataViewService = dataViewService;
-        }
+        private readonly MLContext _context = context;
+        private readonly IDataViewService _dataViewService = dataViewService;
 
         public void CreateTrainingProvider(string trainingPath, string sourcePath, string sourceFormat)
         {
@@ -28,34 +23,32 @@ namespace DotnetLearning.Core.ImageClassification.Services
             if (_trainingPath == String.Empty)
                 throw new Exception("Crie o provider antes para poder treinar");
 
-            MLContext context = new();
-
             IDataView data = _dataViewService.LoadDataFromImages(_sourcePath, _sourceFormat);
 
-            TrainingData(context, data, name);
+            TrainingData(data, name);
         }
 
-        private void TrainingData(MLContext context, IDataView data, string name)
+        private void TrainingData(IDataView data, string name)
         {
-            ITransformer model = TrainPipeline(context, data);
+            ITransformer model = TrainPipeline(data);
 
-            context.Model.Save(model, data.Schema, $"{_trainingPath}\\{name}.mdl");
+            _context.Model.Save(model, data.Schema, $"{_trainingPath}\\{name}.mdl");
         }
 
-        private static ITransformer TrainPipeline(MLContext mlContext, IDataView trainData)
+        private ITransformer TrainPipeline(IDataView trainData)
         {
-            IEstimator<ITransformer> pipeline = BuildPipeline(mlContext);
+            IEstimator<ITransformer> pipeline = BuildPipeline();
 
             ITransformer model = pipeline.Fit(trainData);
 
             return model;
         }
 
-        private static IEstimator<ITransformer> BuildPipeline(MLContext mlContext)
+        private IEstimator<ITransformer> BuildPipeline()
         {
-            IEstimator<ITransformer> pipeline = mlContext.Transforms.Conversion.MapValueToKey(outputColumnName: @"Label", inputColumnName: @"Label")
-                                    .Append(mlContext.MulticlassClassification.Trainers.ImageClassification(labelColumnName: @"Label", scoreColumnName: @"Score", featureColumnName: @"ImageSource"))
-                                    .Append(mlContext.Transforms.Conversion.MapKeyToValue(outputColumnName: @"PredictedLabel", inputColumnName: @"PredictedLabel"));
+            IEstimator<ITransformer> pipeline = _context.Transforms.Conversion.MapValueToKey(outputColumnName: @"Label", inputColumnName: @"Label")
+                                    .Append(_context.MulticlassClassification.Trainers.ImageClassification(labelColumnName: @"Label", scoreColumnName: @"Score", featureColumnName: @"ImageSource"))
+                                    .Append(_context.Transforms.Conversion.MapKeyToValue(outputColumnName: @"PredictedLabel", inputColumnName: @"PredictedLabel"));
 
             return pipeline;
         }

@@ -1,4 +1,3 @@
-using DotnetLearning.Core.IoC;
 using DotnetLearning.Infrastructure.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,7 +23,6 @@ builder.Services.AddCors(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-CoreDependencyResolver.AddCoreDependencies(builder.Services);
 
 var app = builder.Build();
 

@@ -5,10 +5,10 @@ using Microsoft.ML;
 
 namespace DotnetLearning.Core.ImageClassification.Services
 {
-    public class DataViewService(IFileReaderService fileReaderService) : IDataViewService
+    public class DataViewService(IFileReaderService fileReaderService, MLContext context) : IDataViewService
     {
         private readonly IFileReaderService _fileReaderService = fileReaderService;
-        private readonly MLContext _context = new();
+        private readonly MLContext _context = context;
 
         public IDataView LoadDataFromImages(string path, string format)
         {
