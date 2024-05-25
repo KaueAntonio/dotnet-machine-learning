@@ -1,6 +1,0 @@
-@DotnetLearning.Front.Server_HostAddress = http://localhost:5094
-
-GET {{DotnetLearning.Front.Server_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

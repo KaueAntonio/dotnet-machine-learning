@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -11,12 +11,11 @@
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" Version="8.0.1" />
+    <PackageReference Include="Aspire.Hosting.NodeJs" Version="8.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DotnetLearning.Api\DotnetLearning.Api.csproj" />
-    <ProjectReference Include="..\DotnetLearning.Front.Client\DotnetLearning.Front.Client.esproj" />
-    <ProjectReference Include="..\DotnetLearning.Front.Server\DotnetLearning.Front.Server.csproj" />
   </ItemGroup>
 
 </Project>
