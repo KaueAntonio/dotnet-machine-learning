@@ -3,9 +3,9 @@ using DotnetLearning.Core.FileOperations.Models;
 
 namespace DotnetLearning.Core.FileOperations.Services
 {
-    public class FileManagerService : IFileManagerService
+    public class FileManagerService(IFileWriterService fileWriterService) : IFileManagerService
     {
-        private readonly IFileWriterService _fileWriterService1;
+        private readonly IFileWriterService _fileWriterService = fileWriterService;
 
         private int _maxSize;
         private int _size;
@@ -14,10 +14,6 @@ namespace DotnetLearning.Core.FileOperations.Services
         private int _remainder;
         private List<ImageTraningModel> _images;
 
-        public FileManagerService(IFileWriterService fileWriterService) 
-        {
-            _fileWriterService1 = fileWriterService;
-        }
 
         public void Create(List<ImageTraningModel> images, int sizePart, int maxSize)
         {
@@ -41,7 +37,7 @@ namespace DotnetLearning.Core.FileOperations.Services
 
                 List<ImageTraningModel> imagesForSave = part.ToList();
 
-                _fileWriterService1.SaveFile(path, format, imagesForSave);
+                _fileWriterService.SaveFile(path, format, imagesForSave);
             }
 
             if (_remainder > 0)
@@ -52,7 +48,7 @@ namespace DotnetLearning.Core.FileOperations.Services
 
                 List<ImageTraningModel> imagesForSave = part.ToList();
 
-                _fileWriterService1.SaveFile(path, format, imagesForSave);
+                _fileWriterService.SaveFile(path, format, imagesForSave);
             }
         }
     }

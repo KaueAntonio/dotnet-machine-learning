@@ -5,26 +5,24 @@ using Microsoft.ML;
 
 namespace DotnetLearning.Core.ImageClassification.Services
 {
-    public class ImageConsumptionService : IImageConsumptionService
+    public class ImageConsumptionService(MLContext context) : IImageConsumptionService
     {
-        public ImageConsumptionService() { }
+        private readonly MLContext _context = context;
 
-        public PredictionModel Predict(ImageTraningModel input, string modelPath)
+        public PredictionModel Predict(ImageTraningModel input)
         {
-            Lazy<PredictionEngine<ImageTraningModel, PredictionModel>> PredictEngine = new(() => CreatePredictEngine(modelPath), true);
+            Lazy<PredictionEngine<ImageTraningModel, PredictionModel>> PredictEngine = new(() => CreatePredictEngine("Models/training-docs.mdl"), true);
 
             PredictionEngine<ImageTraningModel, PredictionModel> predEngine = PredictEngine.Value;
 
             return predEngine.Predict(input);
         }
 
-        private static PredictionEngine<ImageTraningModel, PredictionModel> CreatePredictEngine(string modelPath)
+        private PredictionEngine<ImageTraningModel, PredictionModel> CreatePredictEngine(string modelPath)
         {
-            MLContext mlContext = new();
+            ITransformer mlModel = _context.Model.Load(modelPath, out _);
 
-            ITransformer mlModel = mlContext.Model.Load(modelPath, out _);
-
-            return mlContext.Model.CreatePredictionEngine<ImageTraningModel, PredictionModel>(mlModel);
+            return _context.Model.CreatePredictionEngine<ImageTraningModel, PredictionModel>(mlModel);
         }
     }
 }

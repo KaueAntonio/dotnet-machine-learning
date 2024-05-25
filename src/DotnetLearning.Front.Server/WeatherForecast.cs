@@ -1,4 +1,4 @@
-namespace DotnetLearning.Api
+namespace DotnetLearning.Front.Server
 {
     public class WeatherForecast
     {

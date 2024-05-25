@@ -1,12 +1,11 @@
-import { useState } from "react";
 import { useMutation } from "react-query";
+import { useState } from "react";
 
 import { TextField, Button, Card, Box, Typography } from "@mui/material";
 
 import { Predict } from "./services/consumptionService";
-import { PredictionResult } from "./services/Types";
-
 import useStyles from "./styles";
+import { PredictionResult } from "./services/Types";
 
 function App() {
   const styles = useStyles();

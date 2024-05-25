@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
@@ -14,6 +14,11 @@
   <ItemGroup>
     <ProjectReference Include="..\DotnetLearning.Core\DotnetLearning.Core.csproj" />
     <ProjectReference Include="..\DotnetLearning.Infrastructure\DotnetLearning.Infrastructure.csproj" />
+    <ProjectReference Include="..\DotnetLearning.ServiceDefaults\DotnetLearning.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

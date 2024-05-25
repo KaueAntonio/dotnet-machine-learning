@@ -3,10 +3,8 @@ using DotnetLearning.Core.FileOperations.Models;
 
 namespace DotnetLearning.Core.FileOperations.Services
 {
-    public class FileReaderService : IFileReaderService
+    public class FileReaderService() : IFileReaderService
     {
-        public FileReaderService() { }
-
         public IEnumerable<string> ReadImageFile(string filePath, string fileFormat)
         {
             IEnumerable<string> images = Directory.GetFiles(filePath, "*.*", SearchOption.AllDirectories)

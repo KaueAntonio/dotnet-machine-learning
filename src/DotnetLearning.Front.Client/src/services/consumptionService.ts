@@ -3,7 +3,7 @@ import { InImagePredict, PredictionResult } from "./Types";
 export const Predict = async (
   body: InImagePredict
 ): Promise<PredictionResult | undefined> => {
-  const response = await fetch("https://localhost:7032/predict-image", {
+  const response = await fetch("https://localhost:7059/predict", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
