@@ -13,7 +13,7 @@ function App() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [response, setResponse] = useState<PredictionResult>();
 
-  const { mutate } = useMutation(
+  const { mutate, isLoading } = useMutation(
     "mutate-predict",
     async () => {
       if (!selectedFile) {
@@ -54,7 +54,8 @@ function App() {
     }
   };
 
-  const handleSubmit = () => {
+    const handleSubmit = () => {
+        setResponse({} as PredictionResult);
     mutate();
   };
 
@@ -70,12 +71,15 @@ function App() {
             />
           )}
         </Box>
-        <Typography>
+        <Typography height="30px">
           <b>Objeto identificado:</b> {response?.predictedLabel}
           <br />
           <b>Eficiência:</b>{" "}
-          {`${(Math.max(...(response?.score ?? [0])) * 100).toFixed(2)}%`}
+                  {`${(Math.max(...(response?.score ?? [0])) * 100).toFixed(2)}%`}
+          <br />
+          {isLoading && "Carregando resultado..."}
         </Typography>
+
         <Box sx={styles.rootRodape}>
           <TextField type="file" onChange={handleFileChange} />
           <Button variant="contained" onClick={handleSubmit} fullWidth>

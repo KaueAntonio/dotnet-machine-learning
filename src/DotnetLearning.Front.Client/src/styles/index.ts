@@ -19,7 +19,7 @@ const useStyles = () => ({
     maxWidth: "100%",
   },
   image: {
-    maxWidth: "100%",
+    maxWidth: "350px",
     maxHeight: "100%",
     borderRadius: 10,
     border: "1px solid grey",
