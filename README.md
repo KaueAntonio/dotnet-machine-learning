@@ -22,7 +22,7 @@ Este repositório contém um projeto que combina técnicas de identificação de
 | Nome   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
 | `Label`      | `string` | **Obrigatório**. Nome da imagem.|
-| `ImageSource`      | `byte[]` | **Obrigatório**. Base64 do imagem. |
+| `ImageSource`      | `byte[]` | **Obrigatório**. Base64 da imagem. |
 
 
 ## Como rodar o projeto?
