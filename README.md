@@ -9,6 +9,13 @@ Este repositório contém um projeto que combina técnicas de identificação de
 ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
 ![ML.Net](https://img.shields.io/badge/ML.NET-5C2D45?style=for-the-badge&logo=.net&logoColor=white)
 
+| Feature           | Status         |
+| ----------------- | -------------- |
+| API               | Completed ✔️   |
+| Aspire Service    | Completed ✔️   |
+| Image Classification Service    | Completed ✔️   |
+| Facial Recognition Service | Pending ⏳   |
+
 ## Documentação da API
 
 #### Retorna o objeto identificado na imagem
